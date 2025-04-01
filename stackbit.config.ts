@@ -1,22 +1,20 @@
-import { defineStackbitConfig } from '@stackbit/sdk'
-
-export default defineStackbitConfig({
+export default {
   contentSources: [
     {
-      type: 'git',
       name: 'content',
+      type: 'git',
       models: [
         {
           name: 'home',
           label: 'Página de Inicio',
-          urlPath: '/',
           file: 'content/pages/home.json',
+          urlPath: '/',
           fields: [
-            { name: 'title', type: 'string', label: 'Título' },
-            { name: 'body', type: 'markdown', label: 'Contenido" }
+            { name: 'title', label: 'Título', type: 'string' },
+            { name: 'body', label: 'Contenido', type: 'markdown' }
           ]
         }
       ]
     }
   ]
-})
+}
