@@ -1,7 +1,13 @@
+'use client'
+
 import type React from "react"
 import type { Metadata } from "next"
+import { useEffect } from "react"
+import croct from "@croct/plug"
+
 import { Playfair_Display } from "next/font/google"
 import "./globals.css"
+
 import DynamicIsland from "@/components/DynamicIsland"
 import DesktopHeader from "@/components/DesktopHeader"
 import Footer from "@/components/Footer"
@@ -17,7 +23,7 @@ const playfair = Playfair_Display({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Silver Street Jewelry",
   description: "Modern and unique jewelry designs",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -25,6 +31,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  useEffect(() => {
+    croct.plug({ appId: '08eacd9f-43d7-4890-86b4-fd4d2a65cf7c' })
+  }, [])
+
   return (
     <html lang="en">
       <body className={playfair.className}>
@@ -47,7 +57,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'
