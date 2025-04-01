@@ -1,20 +1,33 @@
-export default {
+// @ts-ignore
+import { defineStackbitConfig } from '@stackbit/sdk'
+
+export default defineStackbitConfig({
   contentSources: [
     {
-      name: 'content',
       type: 'git',
+      name: 'content',
       models: [
         {
-          name: 'home',
-          label: 'Página de Inicio',
-          file: 'content/pages/home.json',
-          urlPath: '/',
+          name: 'page',
+          type: 'page',
+          label: 'Página Genérica',
+          filePath: 'content/pages/{slug}.json',
+          urlPath: '/{slug}',
           fields: [
-            { name: 'title', label: 'Título', type: 'string' },
-            { name: 'body', label: 'Contenido', type: 'markdown' }
+            {
+              name: 'title',
+              type: 'string',
+              label: 'Título',
+              required: true
+            },
+            {
+              name: 'body',
+              type: 'markdown',
+              label: 'Contenido'
+            }
           ]
         }
       ]
     }
   ]
-}
+})
