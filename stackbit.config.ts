@@ -2,6 +2,7 @@
 import { defineStackbitConfig } from '@stackbit/sdk'
 
 export default defineStackbitConfig({
+  stackbitVersion: '~0.6.0', // 👈 NECESARIO para Visual Editor moderno
   contentSources: [
     {
       type: 'git',
@@ -28,6 +29,13 @@ export default defineStackbitConfig({
           ]
         }
       ]
+    }
+  ],
+  modelExtensions: [ // 👈 Le dice al editor que esto es una página editable
+    {
+      name: 'page',
+      type: 'page',
+      urlPath: '/{slug}'
     }
   ]
 })
