@@ -1,0 +1,99 @@
+{
+  "name": "PrivacyPolicy",
+  "label": "Privacy Policy",
+  "fields": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "backLink",
+      "label": "Back Link Text",
+      "type": "string",
+      "default": "Back to Home"
+    },
+    {
+      "name": "introduction",
+      "label": "Introduction",
+      "type": "text"
+    },
+    {
+      "name": "sections",
+      "label": "Sections",
+      "type": "list",
+      "items": {
+        "type": "object",
+        "fields": [
+          {
+            "name": "heading",
+            "label": "Section Heading",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "paragraphs",
+            "label": "Paragraphs",
+            "type": "list",
+            "items": {
+              "type": "text"
+            }
+          },
+          {
+            "name": "listTitle",
+            "label": "List Title",
+            "type": "string"
+          },
+          {
+            "name": "listItems",
+            "label": "List Items",
+            "type": "list",
+            "items": {
+              "type": "object",
+              "fields": [
+                {
+                  "name": "bold",
+                  "label": "Bold Text",
+                  "type": "string"
+                },
+                {
+                  "name": "text",
+                  "label": "Item Text",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "additionalParagraphs",
+            "label": "Additional Paragraphs",
+            "type": "list",
+            "items": {
+              "type": "text"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "footer",
+      "label": "Footer",
+      "type": "object",
+      "fields": [
+        {
+          "name": "label",
+          "label": "Label",
+          "type": "string"
+        },
+        {
+          "name": "date",
+          "label": "Date",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Update the border radius for all elements */
+* {
+  border-radius: 0.75rem;
+}
+
+/* Make sure inputs, buttons, and other form elements have consistent rounded corners */
+input,
+button,
+select,
+textarea,
+.rounded-full,
+[class*="rounded"] {
+  border-radius: 0.75rem !important;
+}
+
+/* Ensure mobile elements specifically have rounded corners */
+@media (max-width: 768px) {
+  * {
+    border-radius: 0.75rem;
+  }
+
+  /* Force rounded corners on specific elements that might be overridden */
+  .dynamic-island,
+  .dynamic-island *,
+  button,
+  input,
+  select,
+  .card,
+  .card *,
+  [role="dialog"],
+  [role="dialog"] * {
+    border-radius: 0.75rem !important;
+  }
+}
+
+/* Exception for elements that should be perfectly circular */
+.rounded-full,
+[class*="rounded-full"] {
+  border-radius: 9999px !important;
+}
+
+/* No border radius for specific elements if needed */
+.no-radius * {
+  border-radius: 0;
+}
+
+img {
+  border-radius: 1rem;
+}
+
